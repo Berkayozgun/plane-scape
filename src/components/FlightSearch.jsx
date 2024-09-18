@@ -2,7 +2,7 @@ import React from "react";
 
 function FlightSearch() {
   return (
-    <div className='flex flex-col w-7/12 bg-white rounded-xl justify-evenly h-[250px] p-6'>
+    <div className='flex flex-col w-full bg-white rounded-xl justify-evenly h-[200px] p-6'>
       <div className='flex flex-row justify-between items-center'>
         <div className='flex flex-row'>
           <div>svg</div>
@@ -17,22 +17,22 @@ function FlightSearch() {
       <div className='flex flex-row justify-between items-center'>
         <div className='flex flex-row'>
           <div>svg</div>
-          <h1>From</h1>
+
           <input type='text' placeholder='Enter city or airport' />
         </div>
         <div className='flex flex-row'>
           <div>svg</div>
-          <h1>To</h1>
+
           <input type='text' placeholder='Enter city or airport' />
         </div>
         <div className='flex flex-row'>
           <div>svg</div>
-          <h1>Depart</h1>
+
           <input type='date' />
         </div>
         <div className='flex flex-row'>
           <div>svg</div>
-          <h1>Return</h1>
+
           <input type='date' />
         </div>
       </div>

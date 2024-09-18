@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className='flex flex-row justify-between border-black '>
+    <header className='flex flex-row justify-between'>
       <div className='flex flex-row justify-center items-center gap-4'>
         <svg
           fill='#ffffff'
