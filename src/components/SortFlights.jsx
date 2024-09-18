@@ -5,10 +5,12 @@ function SortFlights() {
     <div className='flex flex-col p-4 gap-4 w-3/12'>
       Sort By:
       <select className='bg-white p-2 rounded-xl'>
-        <option>Price</option>
-        <option>Duration</option>
-        <option>Departure</option>
-        <option>Arrival</option>
+        <option>Lowest Price</option>
+        <option>Highest Price</option>
+        <option>Earliest Departure</option>
+        <option>Latest Departure</option>
+        <option>Shortest Duration</option>
+        <option>Longest Duration</option>
       </select>
       Arrival Time:
       <form>
@@ -21,10 +23,10 @@ function SortFlights() {
       Stops
       <form>
         <input type='radio' id='nonstop' name='fav_language' value='HTML' />{" "}
-        <label htmlFor='html'>Nonstop</label>
+        <label htmlFor='html'>Nonstop $230</label>
         <br />
         <input type='radio' id='css' name='fav_language' value='CSS' />{" "}
-        <label htmlFor='css'>1 Stop</label>
+        <label htmlFor='css'>1 Stop $230</label>
         <br />
         <input
           type='radio'
@@ -32,23 +34,42 @@ function SortFlights() {
           name='fav_language'
           value='JavaScript'
         />{" "}
-        <label htmlFor='javascript'>2+ Stops</label>
+        <label htmlFor='javascript'>2+ Stops $230</label>
       </form>
       Airlines Included
       <form>
-        <input type='checkbox' id='html' name='fav_language' value='HTML' />{" "}
-        <label htmlFor='html'>Air India</label>
+        <input type='radio' id='nonstop' name='fav_language' value='HTML' />{" "}
+        <label htmlFor='html'>American Airlines</label>
         <br />
-        <input type='checkbox' id='css' name='fav_language' value='CSS' />{" "}
-        <label htmlFor='css'>Indigo</label>
+        <input type='radio' id='css' name='fav_language' value='CSS' />{" "}
+        <label htmlFor='css'>Delta</label>
         <br />
         <input
-          type='checkbox'
+          type='radio'
           id='javascript'
           name='fav_language'
           value='JavaScript'
         />{" "}
-        <label htmlFor='javascript'>Vistara</label>
+        <label htmlFor='javascript'>United</label>
+        <br />
+        <input
+          type='radio'
+          id='javascript'
+          name='fav_language'
+          value='JavaScript'
+        />{" "}
+        <label htmlFor='javascript'>Southwest</label>
+
+        <br />
+        <input
+          type='radio'
+          id='javascript'
+          name='fav_language'
+          value='JavaScript'
+        />{" "}
+        <label htmlFor='javascript'>JetBlue</label>
+        
+
       </form>
     </div>
   );
