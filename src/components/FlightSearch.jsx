@@ -91,7 +91,7 @@ function FlightSearch() {
         </div>
       </div>
 
-      <button className='bg-[#4a1b96] w-2/12 text-white rounded-xl p-2'>
+      <button className='bg-[#4a1b96] w-[130px] text-white rounded-xl py-2 font-semibold'>
         Show flights
       </button>
     </div>

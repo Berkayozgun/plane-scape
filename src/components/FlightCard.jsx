@@ -51,7 +51,7 @@ const FlightCard = ({ flight }) => {
           </div>
 
           <div className='flex flex-col h-full items-center'>
-            <div>{flight.airlineCode}</div> {/* Havayolu kodu */}
+            <div>Airline:{flight.airlineCode}</div> {/* Havayolu kodu */}
             <svg
               width='24'
               height='24'
@@ -65,11 +65,11 @@ const FlightCard = ({ flight }) => {
               />
             </svg>
             <div>
-              Duration:{" "}
               {calculateFlightDuration(
                 flight.scheduleDateTime,
                 flight.actualLandingTime
-              )}
+              )}{" "}
+              (Nonstop)
             </div>
           </div>
           <div className='flex flex-col'>
@@ -86,20 +86,18 @@ const FlightCard = ({ flight }) => {
                   width='24'
                 />
               </svg>
-              <div className="text-sm">Arrival</div>
-
+              <div className='text-sm'>Arrival</div>
             </div>
-              <div className='font-bold'>
-                {formatTime(flight.actualLandingTime)}
-              </div>
-              <div>Airport: {flight.prefixICAO}</div>
+            <div className='font-bold'>
+              {formatTime(flight.actualLandingTime)}
             </div>
-          
+            <div>Airport: {flight.prefixICAO}</div>
+          </div>
         </div>
 
         <div className='flex flex-row justify-between w-full'>
           <div>
-            <div className='flex font-bold text-[#4a1b96]'>
+            <div className='flex font-bold text-[#4a1b96] mt-6'>
               Price: ${Math.floor(Math.random() * 500)}
             </div>
             <div className='text-sm text-gray-600'>Round Trip</div>
@@ -112,6 +110,9 @@ const FlightCard = ({ flight }) => {
           </div>
         </div>
       </div>
+      <button className='text-[#4a1b96] text-sm font-semibold underline absolute mt-44 py-3 px-5 -ml-5 -mb-5 bg-[#e5dfea] rounded-xl'>
+        Check the details
+      </button>
     </div>
   );
 };
