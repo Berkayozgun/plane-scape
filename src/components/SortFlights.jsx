@@ -2,7 +2,7 @@ import React from "react";
 
 function SortFlights() {
   return (
-    <div className='flex flex-col p-4 gap-4 w-3/12 overflow-y-auto max-h-[440px]'>
+    <div className='flex flex-col p-4 gap-4 w-3/12 overflow-y-auto max-h-[440px] scrollbar-hide'>
       Sort By:
       <select className='bg-white p-2 rounded-xl'>
         <option>Lowest Price</option>

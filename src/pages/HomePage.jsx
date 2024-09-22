@@ -49,7 +49,7 @@ const HomePage = () => {
         <div className='flex flex-col w-10/12 gap-6'>
           <FlightSearch />
           <div className='flex flex-row w-full gap-6'>
-            <div className='flex flex-col gap-6 w-full overflow-y-auto max-h-[440px]'>
+            <div className='flex flex-col gap-6 w-full overflow-y-auto max-h-[440px] scrollbar-hide'>
               {flights.length === 0 ? (
                 <p>Uçuş bulunamadı</p> // Uçuşlar yoksa bilgilendirme
               ) : (

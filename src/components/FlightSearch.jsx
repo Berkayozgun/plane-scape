@@ -26,7 +26,7 @@ function FlightSearch() {
       </div>
 
       <div className='flex flex-row justify-between items-center'>
-        <div className='flex flex-row rounded-xl border-gray border-2 p-1 gap-1'>
+        <div className='flex flex-row rounded-xl items-center border-gray border-2 p-1 gap-1'>
           <svg
             width='20'
             height='20'
@@ -40,9 +40,9 @@ function FlightSearch() {
             />
           </svg>
 
-          <input type='text' placeholder='Enter city or airport' />
+          <input type='text' placeholder='' />
         </div>
-        <div className='flex flex-row rounded-xl border-gray border-2 p-1 gap-1'>
+        <div className='flex flex-row rounded-xl items-center border-gray border-2 p-1 gap-1'>
           <svg
             width='20'
             height='20'
@@ -56,7 +56,7 @@ function FlightSearch() {
             />
           </svg>
 
-          <input type='text' placeholder='Enter city or airport' />
+          <input type='text' placeholder='' />
         </div>
         <div className='flex flex-row rounded-xl border-gray border-2 p-1 gap-1'>
           <svg
@@ -71,7 +71,7 @@ function FlightSearch() {
               width='20'
             />
           </svg>
-          <input type='date' />
+          <input type='date' placeholder='' />
         </div>
         <div className='flex flex-row rounded-xl border-gray border-2 p-1 gap-1'>
           <svg
