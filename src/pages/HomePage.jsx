@@ -15,7 +15,9 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         // Uçuşları API'den çek
-        const flightsResponse = await axios.get("http://localhost:5000/api/flights");
+        const flightsResponse = await axios.get(
+          "http://localhost:5000/api/flights"
+        );
         const flightsData = flightsResponse.data.flights || [];
 
         setFlights(flightsData); // Uçuş verilerini ayarla
@@ -43,11 +45,11 @@ const HomePage = () => {
   return (
     <div className='flex flex-col w-full h-screen p-8 gap-6 bg-[#f5f3f7]'>
       <Header />
-      <div className='flex flex-row h-screen gap-6 justify-between'>
-        <div className='flex flex-col w-9/12 gap-6'>
+      <div className='flex flex-row gap-6 justify-between'>
+        <div className='flex flex-col w-10/12 gap-6'>
           <FlightSearch />
           <div className='flex flex-row w-full gap-6'>
-            <div className='flex flex-col gap-6 w-full'>
+            <div className='flex flex-col gap-6 w-full overflow-y-auto max-h-[440px]'>
               {flights.length === 0 ? (
                 <p>Uçuş bulunamadı</p> // Uçuşlar yoksa bilgilendirme
               ) : (

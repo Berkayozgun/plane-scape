@@ -110,9 +110,6 @@ const FlightCard = ({ flight }) => {
           </div>
         </div>
       </div>
-      <button className='text-[#4a1b96] text-sm font-semibold underline absolute mt-44 py-3 px-5 -ml-5 -mb-5 bg-[#e5dfea] rounded-xl'>
-        Check the details
-      </button>
     </div>
   );
 };

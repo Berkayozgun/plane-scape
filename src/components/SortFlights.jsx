@@ -2,7 +2,7 @@ import React from "react";
 
 function SortFlights() {
   return (
-    <div className='flex flex-col p-4 gap-4 w-3/12'>
+    <div className='flex flex-col p-4 gap-4 w-3/12 overflow-y-auto max-h-[440px]'>
       Sort By:
       <select className='bg-white p-2 rounded-xl'>
         <option>Lowest Price</option>
@@ -59,7 +59,6 @@ function SortFlights() {
           value='JavaScript'
         />{" "}
         <label htmlFor='javascript'>Southwest</label>
-
         <br />
         <input
           type='radio'
@@ -68,8 +67,6 @@ function SortFlights() {
           value='JavaScript'
         />{" "}
         <label htmlFor='javascript'>JetBlue</label>
-        
-
       </form>
     </div>
   );
