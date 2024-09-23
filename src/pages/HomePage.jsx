@@ -19,8 +19,10 @@ const HomePage = () => {
           "http://localhost:5000/api/flights"
         );
         const flightsData = flightsResponse.data.flights || [];
-
+        console.log(flightsResponse.data); // Yanıtı kontrol edin
         setFlights(flightsData); // Uçuş verilerini ayarla
+        console.log("Uçuş verileri:", flightsData);
+
         setLoading(false); // Yükleme tamamlandı
       } catch (error) {
         setError("API isteğinde hata oluştu");

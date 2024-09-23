@@ -1,6 +1,8 @@
 import React from "react";
+import axios from "axios";
 
 const FlightCard = ({ flight }) => {
+  console.log("Flight data:", flight);
   // Tarihleri formatlayarak AM/PM formatına dönüştürme
   const formatTime = (dateTime) => {
     return new Date(dateTime).toLocaleTimeString("en-US", {
@@ -16,6 +18,34 @@ const FlightCard = ({ flight }) => {
     const hours = duration.getUTCHours();
     const minutes = duration.getUTCMinutes();
     return `${hours}h ${minutes}m`;
+  };
+
+  const saveFlight = async () => {
+    const flightData = {
+      flightName: flight.flightName, // API'den gelen uçuş ismi
+      flightNumber: flight.flightNumber, // API'den gelen uçuş numarası
+      scheduleDateTime: flight.scheduleDateTime,
+      actualLandingTime: flight.actualLandingTime,
+      estimatedLandingTime: flight.estimatedLandingTime, // Eğer varsa
+      airlineCode: flight.airlineCode, // Eğer String ise Number'a çevir
+      aircraftType: flight.aircraftType || { iataMain: "", iataSub: "" }, // Varsayılan değer
+      baggageClaim: flight.baggageClaim || { belts: [] }, // Varsayılan değer
+      route: flight.route,
+      publicFlightState: flight.publicFlightState || { flightStates: [] }, // Varsayılan değer
+      codeshares: flight.codeshares || { codeshares: [] }, // Varsayılan değer
+    };
+    try {
+      // POST isteği ile uçuş verilerini backend'e gönder
+      const response = await axios.post(
+        "http://localhost:5000/api/save-flight",
+        flightData
+      );
+      console.log("Flight saved:", response.data);
+      alert("Flight booked successfully!");
+    } catch (error) {
+      console.error("Error saving flight:", error);
+      alert("Failed to book the flight.");
+    }
   };
 
   return (
@@ -104,7 +134,10 @@ const FlightCard = ({ flight }) => {
           </div>
 
           <div>
-            <button className='bg-[#4a1b96] text-white rounded-br-xl rounded-tl-xl mt-6 -mr-6 p-6 font-semibold'>
+            <button
+              className='bg-[#4a1b96] text-white rounded-br-xl rounded-tl-xl mt-6 -mr-6 p-6 font-semibold'
+              onClick={saveFlight}
+            >
               Book Flight
             </button>
           </div>
