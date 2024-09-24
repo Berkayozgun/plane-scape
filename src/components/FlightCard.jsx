@@ -46,6 +46,7 @@ const FlightCard = ({ flight, showButton }) => {
         flightData
       );
       alert("Flight booked successfully!"); // Show an alert message on success
+      window.location.href = "/flights"; // Redirect to the saved flights page
     } catch (error) {
       console.error("Error saving flight:", error);
       alert("Failed to book the flight."); // Show an alert message on error
