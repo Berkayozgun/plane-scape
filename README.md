@@ -6,11 +6,11 @@ Bu proje, Schiphol API'sinden alınan uçuş verilerini MongoDB veritabanında s
 
 #### Anasayfa ve Uçuş Listesi
 
-![Anasayfa ve Uçuş Listesi](./src/assets/images/homepage.png)
+![Anasayfa ve Uçuş Listesi](./src/assets/homepage.png)
 
 #### Kaydedilen Uçuşlar
 
-![Kaydedilen Uçuşlar](./src/assets/images/saved-flights.png)
+![Kaydedilen Uçuşlar](./src/assets/saved-flights.png)
 
 ## Proje Yapısı
 
