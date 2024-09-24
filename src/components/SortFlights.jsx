@@ -1,6 +1,6 @@
 import React from "react";
 
-function SortFlights() {
+function SortFlights() { // This component displays the sort options for the flights.
   return (
     <div className='flex flex-col p-4 gap-4 w-3/12 overflow-y-auto max-h-[440px] scrollbar-hide'>
       Sort By:

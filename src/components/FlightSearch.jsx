@@ -1,6 +1,6 @@
 import React from "react";
 
-function FlightSearch() {
+function FlightSearch() { // This component displays the flight search form.
   return (
     <div className='flex flex-col w-full bg-white rounded-xl justify-evenly h-[200px] gap-4 p-6'>
       <div className='flex flex-row justify-between items-center gap-4'>

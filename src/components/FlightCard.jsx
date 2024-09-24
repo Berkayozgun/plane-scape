@@ -1,16 +1,23 @@
 import React from "react";
 import axios from "axios";
 
+// This component displays the flight details in a card format.
+// It also includes a button to book the flight. When the button is clicked, the flight data is sent to the backend.
+// The flight data is saved in the database.
+// The flight card displays the departure and arrival times, airline code, flight duration, and price.
+// The flight card also includes the departure and arrival airports.
+
 const FlightCard = ({ flight, showButton }) => {
-  // Tarihleri formatlayarak AM/PM formatına dönüştürme
+  // Function to format the time in 12-hour format
   const formatTime = (dateTime) => {
     return new Date(dateTime).toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
-      hour12: true, // AM/PM formatını aktif et
+      hour12: true, // AM/PM format
     });
   };
   const calculateFlightDuration = (departureTime, arrivalTime) => {
+    // Calculate the duration of the flight
     const departure = new Date(departureTime);
     const arrival = new Date(arrivalTime);
     const duration = new Date(arrival - departure);
@@ -21,29 +28,27 @@ const FlightCard = ({ flight, showButton }) => {
 
   const saveFlight = async () => {
     const flightData = {
-      flightName: flight.flightName, // API'den gelen uçuş ismi
-      flightNumber: flight.flightNumber, // API'den gelen uçuş numarası
-      scheduleDateTime: flight.scheduleDateTime,
-      actualLandingTime: flight.actualLandingTime,
-      estimatedLandingTime: flight.estimatedLandingTime, // Eğer varsa
-      airlineCode: flight.airlineCode, // Eğer String ise Number'a çevir
-      aircraftType: flight.aircraftType || { iataMain: "", iataSub: "" }, // Varsayılan değer
-      baggageClaim: flight.baggageClaim || { belts: [] }, // Varsayılan değer
-      route: flight.route,
-      publicFlightState: flight.publicFlightState || { flightStates: [] }, // Varsayılan değer
-      codeshares: flight.codeshares || { codeshares: [] }, // Varsayılan değer
+      flightName: flight.flightName, // Flight name from the API
+      scheduleDateTime: flight.scheduleDateTime, // Departure time
+      actualLandingTime: flight.actualLandingTime, // Arrival time
+      estimatedLandingTime: flight.estimatedLandingTime, // Estimated arrival time
+      airlineCode: flight.airlineCode, // Airline code
+      aircraftType: flight.aircraftType || { iataMain: "", iataSub: "" }, // Default value
+      baggageClaim: flight.baggageClaim || { belts: [] }, // Default value
+      route: flight.route, // Route details
+      publicFlightState: flight.publicFlightState || { flightStates: [] }, // Default value
+      codeshares: flight.codeshares || { codeshares: [] }, // Default value
     };
     try {
-      // POST isteği ile uçuş verilerini backend'e gönder
+      // Send the flight data to the backend with a POST request to save the flight
       const response = await axios.post(
         "http://localhost:5000/api/save-flight",
         flightData
       );
-      console.log("Flight saved:", response.data);
-      alert("Flight booked successfully!");
+      alert("Flight booked successfully!"); // Show an alert message on success
     } catch (error) {
       console.error("Error saving flight:", error);
-      alert("Failed to book the flight.");
+      alert("Failed to book the flight."); // Show an alert message on error
     }
   };
 
@@ -80,7 +85,7 @@ const FlightCard = ({ flight, showButton }) => {
           </div>
 
           <div className='flex flex-col h-full items-center'>
-            <div>Airline:{flight.airlineCode}</div> {/* Havayolu kodu */}
+            <div>Airline:{flight.airlineCode}</div>
             <svg
               width='24'
               height='24'
@@ -127,16 +132,16 @@ const FlightCard = ({ flight, showButton }) => {
         <div className='flex flex-row justify-between w-full'>
           <div>
             <div className='flex font-bold text-[#4a1b96] mt-6'>
-              Price: ${Math.floor(Math.random() * 500)}
+              Price: ${Math.floor(Math.random() * 500)} {/* Random price */}
             </div>
             <div className='text-sm text-gray-600'>Round Trip</div>
           </div>
 
           <div>
-            {showButton && (
+            {showButton && ( // Show the button only if the showButton prop is true
               <button
                 className='bg-[#4a1b96] text-white rounded-br-xl rounded-tl-xl mt-6 -mr-6 p-6 font-semibold'
-                onClick={saveFlight}
+                onClick={saveFlight} // Call the saveFlight function when the button is clicked
               >
                 Book Flight
               </button>

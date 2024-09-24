@@ -1,30 +1,30 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const flightSchema = new mongoose.Schema({
-  flightName: String,
-  flightNumber: Number,
-  scheduleDateTime: Date,
-  actualLandingTime: Date,
-  estimatedLandingTime: Date,
-  airlineCode: Number,
+  flightName: String, // Flight name from the API
+  flightNumber: Number, // Flight number
+  scheduleDateTime: Date, // Departure time
+  actualLandingTime: Date, // Arrival time
+  estimatedLandingTime: Date, // Estimated arrival time
+  airlineCode: Number, // Airline code
   aircraftType: {
     iataMain: String,
     iataSub: String,
   },
   baggageClaim: {
-    belts: [String]
+    belts: [String],
   },
   route: {
-    destinations: [String]
+    destinations: [String],
   },
   publicFlightState: {
-    flightStates: [String]
+    flightStates: [String],
   },
   codeshares: {
-    codeshares: [String]
-  }
+    codeshares: [String],
+  },
 });
 
-const Flight = mongoose.model('Flight', flightSchema);
+const Flight = mongoose.model("Flight", flightSchema); 
 
 export default Flight;

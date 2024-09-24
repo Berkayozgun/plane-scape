@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header() { // This component displays the header of the website.
   return (
     <header className='flex flex-row justify-between'>
       <div className='flex flex-row justify-center items-center gap-4'>

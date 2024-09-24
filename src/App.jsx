@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import FlightsPage from './pages/FlightsPage';
 
-function App() {
+function App() { // App component
   return (
-    <Router>
+    <Router> 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} /> 
         <Route path="/flights" element={<FlightsPage />} />
       </Routes>
     </Router>

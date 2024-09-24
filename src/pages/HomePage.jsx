@@ -7,39 +7,35 @@ import SortFlights from "../components/SortFlights";
 import AdSide from "../components/AdSide";
 
 const HomePage = () => {
-  const [flights, setFlights] = useState([]);
-  const [loading, setLoading] = useState(true); // Yükleme durumu
-  const [error, setError] = useState(null); // Hata durumu
+  const [flights, setFlights] = useState([]); // Flight data
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null);  // Error state
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => { 
       try {
-        // Uçuşları API'den çek
-        const flightsResponse = await axios.get(
+        const flightsResponse = await axios.get( // Get all flights from the API
           "http://localhost:5000/api/flights"
         );
-        const flightsData = flightsResponse.data.flights || [];
-        console.log(flightsResponse.data); // Yanıtı kontrol edin
-        setFlights(flightsData); // Uçuş verilerini ayarla
-        console.log("Uçuş verileri:", flightsData);
-
-        setLoading(false); // Yükleme tamamlandı
+        const flightsData = flightsResponse.data.flights || []; 
+        setFlights(flightsData); // Set the flight data 
+        setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
-        setError("API isteğinde hata oluştu");
-        setLoading(false); // Hata durumunda da yükleme sonlanmalı
-        console.error("API isteğinde hata oluştu: ", error);
+        setError("API isteğinde hata oluştu"); // Set error message
+        setLoading(false); // Set loading to false when error occurs
+        console.error("API isteğinde hata oluştu: ", error); // Log the error
       }
     };
 
-    fetchData(); // Sayfa yüklendiğinde API isteği yap
+    fetchData(); // Call the fetch data function
   }, []);
 
-  // Yükleme durumu
-  if (loading) {
+  // Loading state
+  if (loading) { 
     return <p>Yükleniyor...</p>;
   }
 
-  // Hata durumu
+  // Error state
   if (error) {
     return <p>{error}</p>;
   }
@@ -53,7 +49,7 @@ const HomePage = () => {
           <div className='flex flex-row w-full gap-6'>
             <div className='flex flex-col gap-6 w-full overflow-y-auto max-h-[440px] scrollbar-hide'>
               {flights.length === 0 ? (
-                <p>Uçuş bulunamadı</p> // Uçuşlar yoksa bilgilendirme
+                <p>Uçuş bulunamadı</p> // Display a message if no flights are available
               ) : (
                 flights.map((flight) => (
                   <FlightCard key={flight.id} flight={flight}  showButton={true}/>
