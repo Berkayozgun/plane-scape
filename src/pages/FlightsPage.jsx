@@ -17,7 +17,7 @@ const SavedFlights = () => {
 
     fetchFlights();
   }, []);
-
+   
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1 style={{ textAlign: "center" }}>Saved Flights</h1>
@@ -26,7 +26,7 @@ const SavedFlights = () => {
       ) : (
         <div className="grid grid-cols-1 gap-4 mt-4">
           {flights.map(flight => (
-            <FlightCard key={flight._id} flight={flight} arr/>
+            <FlightCard key={flight._id} flight={flight} showButton={false}/>
           ))}
         </div>
       )}

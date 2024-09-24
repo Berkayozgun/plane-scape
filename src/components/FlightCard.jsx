@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const FlightCard = ({ flight }) => {
-  console.log("Flight data:", flight);
+const FlightCard = ({ flight, showButton }) => {
   // Tarihleri formatlayarak AM/PM formatına dönüştürme
   const formatTime = (dateTime) => {
     return new Date(dateTime).toLocaleTimeString("en-US", {
@@ -134,12 +133,14 @@ const FlightCard = ({ flight }) => {
           </div>
 
           <div>
-            <button
-              className='bg-[#4a1b96] text-white rounded-br-xl rounded-tl-xl mt-6 -mr-6 p-6 font-semibold'
-              onClick={saveFlight}
-            >
-              Book Flight
-            </button>
+            {showButton && (
+              <button
+                className='bg-[#4a1b96] text-white rounded-br-xl rounded-tl-xl mt-6 -mr-6 p-6 font-semibold'
+                onClick={saveFlight}
+              >
+                Book Flight
+              </button>
+            )}
           </div>
         </div>
       </div>

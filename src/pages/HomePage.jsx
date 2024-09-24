@@ -56,7 +56,7 @@ const HomePage = () => {
                 <p>Uçuş bulunamadı</p> // Uçuşlar yoksa bilgilendirme
               ) : (
                 flights.map((flight) => (
-                  <FlightCard key={flight.id} flight={flight} />
+                  <FlightCard key={flight.id} flight={flight}  showButton={true}/>
                 ))
               )}
             </div>
